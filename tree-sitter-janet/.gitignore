@@ -48,6 +48,3 @@ zig-out/
 *.tar.gz
 *.tgz
 *.zip
-
-tests/*.orig
-test/*.err

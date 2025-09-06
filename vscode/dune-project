@@ -1,0 +1,19 @@
+(lang dune 3.19)
+
+(name jslp_client)
+
+(source
+ (github syedtaz/jlsp))
+
+(authors "Tazmilur Saad <ssaad@colgate.edu>")
+
+(maintainers "Tazmilur Saad <ssaad@colgate.edu>")
+
+(license ISC)
+
+(package
+ (name jslp_client)
+ (allow_empty)
+ ;  (synopsis "A short synopsis")
+ ;  (description "A longer description")
+ (depends ocaml))
