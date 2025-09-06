@@ -1,0 +1,102 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "janet",
+  "rules": {
+    "main": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "value"
+      }
+    },
+    "value": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "ws"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "reader_mac"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "raw_value"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ws"
+          }
+        }
+      ]
+    },
+    "ws": {
+      "type": "PATTERN",
+      "value": "[ \t\r\f\n\u0000\u000b]"
+    },
+    "reader_mac": {
+      "type": "PATTERN",
+      "value": "[';~,|]"
+    },
+    "raw_value": {
+      "type": "SYMBOL",
+      "name": "keyword"
+    },
+    "symchars": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[a-zA-Z0-9-ÿ]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[!$%&*+-./:<?=>@^_]"
+        }
+      ]
+    },
+    "keyword": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "symchars"
+          }
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [
+    [
+      "value"
+    ]
+  ],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}

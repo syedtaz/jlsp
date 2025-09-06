@@ -1,0 +1,34 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "janet",
+      "camelcase": "Janet",
+      "title": "janet",
+      "scope": "source.janet",
+      "file-types": [
+        "janet"
+      ],
+      "injection-regex": "^janet$",
+      "class-name": "TreeSitterJanet"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "ISC",
+    "description": "Parser for the Janet language",
+    "authors": [
+      {
+        "name": "Tazmilur Saad",
+        "email": "ssaad@colgate.edu",
+        "url": "https://syedtaz.github.io/"
+      }
+    ],
+    "links": {
+      "repository": "https://git.sr.ht/~syedtaz/jlsp"
+    }
+  },
+  "bindings": {
+    "c": true
+  }
+}
