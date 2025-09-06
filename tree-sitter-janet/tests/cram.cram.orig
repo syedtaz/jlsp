@@ -1,0 +1,6 @@
+Can we read comments?
+
+  $ tree-sitter parse $TESTDIR/comments.janet
+  aaa
+
+We should succeed.

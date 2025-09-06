@@ -1,0 +1,13 @@
+Can we read comments?
+
+  $ tree-sitter parse $TESTDIR/comments.janet
+  (main [0, 0] - [1, 26]
+    (value [0, 0] - [0, 19]
+      (raw_value [0, 0] - [0, 19]
+        (comment [0, 0] - [0, 19])))
+    (value [0, 19] - [1, 26]
+      (ws [0, 19] - [1, 0])
+      (raw_value [1, 0] - [1, 26]
+        (comment [1, 0] - [1, 26]))))
+
+We should succeed.

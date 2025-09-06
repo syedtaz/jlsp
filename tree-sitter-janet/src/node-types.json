@@ -39,6 +39,10 @@
       "required": true,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "keyword",
           "named": true
         }
@@ -76,6 +80,10 @@
   {
     "type": ":",
     "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
   },
   {
     "type": "reader_mac",
