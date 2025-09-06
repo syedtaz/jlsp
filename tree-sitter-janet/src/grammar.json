@@ -59,6 +59,10 @@
         {
           "type": "SYMBOL",
           "name": "comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
         }
       ]
     },
@@ -78,18 +82,73 @@
         ]
       }
     },
-    "symchars": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[a-zA-Z0-9-ÿ]"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[!$%&*+-./:<?=>@^_]"
-        }
-      ]
+    "constant": {
+      "type": "STRING",
+      "value": ""
+    },
+    "number": {
+      "type": "STRING",
+      "value": ""
+    },
+    "string": {
+      "type": "STRING",
+      "value": ""
+    },
+    "buffer": {
+      "type": "STRING",
+      "value": ""
+    },
+    "long_string": {
+      "type": "STRING",
+      "value": ""
+    },
+    "long_buffer": {
+      "type": "STRING",
+      "value": ""
+    },
+    "parray": {
+      "type": "STRING",
+      "value": ""
+    },
+    "barray": {
+      "type": "STRING",
+      "value": ""
+    },
+    "ptuple": {
+      "type": "STRING",
+      "value": ""
+    },
+    "btuple": {
+      "type": "STRING",
+      "value": ""
+    },
+    "struct": {
+      "type": "STRING",
+      "value": ""
+    },
+    "dict": {
+      "type": "STRING",
+      "value": ""
+    },
+    "symbol": {
+      "type": "SYMBOL",
+      "name": "many_symchars"
+    },
+    "many_symchars": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[a-zA-Z0-9-ÿ]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[!$%&*+-./:<?=>@^_]"
+          }
+        ]
+      }
     },
     "keyword": {
       "type": "SEQ",
@@ -99,11 +158,8 @@
           "value": ":"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SYMBOL",
-            "name": "symchars"
-          }
+          "type": "SYMBOL",
+          "name": "many_symchars"
         }
       ]
     }
@@ -117,6 +173,9 @@
   "conflicts": [
     [
       "value"
+    ],
+    [
+      "many_symchars"
     ]
   ],
   "precedences": [],
